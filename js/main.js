@@ -99,10 +99,50 @@ $(function(){
 		elTooltip.removeClass("active");
 		mapFill.fadeOut();
 	});
+	
+	// POPUP
+	$(".b-popup-slider").on("click", ".b-button-detail .b-button", function() {
+		var elItem = $(this).closest(".b-item"),
+			elDetail = elItem.find(".b-detail"),
+			btnText = $(this).text(),
+			btnChangeText = $(this).data("change-text");
+			
+		$(this).text(btnChangeText).data("change-text", btnText);
+		
+		if (elDetail.is(":visible")) {
+			elDetail.slideUp();
+		} else {
+			elDetail.slideDown();
+		}
+	});
+	
+	$(".b-popup-slider .b-close, .b-popup__fill").click(function(){
+		$(".b-popup").fadeOut();
+	});
+	
+	$(".b-popup-slider .b-arrow").click(function(){
+		var elSlider = $(this).closest(".b-popup-slider"),
+			elItem = elSlider.find(".b-item"),
+			animOptions = {
+				opacity:0
+			}
+			
+		if ($(this).is(".b-arrow_left")) {
+			animOptions.right = "-50%"
+		} else {
+			animOptions.left = "-50%"
+		}
+			
+		elItem.animate(animOptions, function(){
+			$(this).hide();
+		});
+	});
+	
+	centerPopup($(".b-popup-slider"));
 });
 
 $(window).resize(function(){
-	centerPopup($(".b-popup"));
+	centerPopup($(".b-popup-slider"));
 });
 
 function showPopup(element)
@@ -126,19 +166,32 @@ function hidePopup(element)
 
 function centerPopup(element)
 {
-	var elWidth = element.width();
-	var elHeight = element.height();
-	var windowWidth = $(window).width();
-	var windowHeight = $(window).height();
-	var scrollTop = $(window).scrollTop();
-	var left = windowWidth/2 - elWidth/2;
-	var top = windowHeight/2 - elHeight/2 + scrollTop;
+	var elWidth = element.width(),
+		elHeight = element.height(),
+		windowWidth = $(window).width(),
+		windowHeight = $(window).height(),
+		scrollTop = 0,
+		left = windowWidth/2 - elWidth/2,
+		top = windowHeight/2 - elHeight/2 + scrollTop;
 	
 	if (left < 0) left = 0;
 	if (top < 0) top = 0;
 	
 	element.css({
-		left:left,
-		top:top
+		left:left
+	});
+	
+	var item = element.find(".b-popup-slider__inner"),
+		itemWidth = item.width(),
+		itemHeight = item.height(),
+		left = -itemWidth/2 - 50,
+		top = windowHeight/2 - itemHeight/2 + scrollTop;
+		
+	if (top < 20) top = 20;
+	
+	item.css({
+		left:"50%",
+		top:top,
+		marginLeft: left
 	});
 }
