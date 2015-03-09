@@ -21,9 +21,10 @@
 		<script src="js/placeholder.js"></script>
 	<![endif]-->
 	
-	<script type="text/javascript" src="http://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
-	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/src/infobox.js"></script>
 	<script type="text/javascript" src="js/map.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
 
@@ -64,7 +65,7 @@
 				</div>
 				
 				<div class="b-sections" data-animation-class="fadeIn">
-					<div class="b-sections__item">
+					<div class="b-sections__item" data-section-code="rub">
 						<div class="b-image b-image_bank"></div>
 						<div class="b-content">
 							<div class="b-icon animation">
@@ -84,7 +85,7 @@
 						
 						<div class="b-small-icon b-small-icon_rub"><img src="images/icon-section-rub.png" alt=""/></div>
 					</div> <!-- end .b-sections__item -->
-					<div class="b-sections__item">
+					<div class="b-sections__item" data-section-code="home">
 						<div class="b-image b-image_frontier"></div>
 						<div class="b-content">
 							<div class="b-icon animation">
@@ -103,7 +104,7 @@
 						
 						<div class="b-small-icon b-small-icon_home"><img src="images/icon-section-home.png" alt=""/></div>
 					</div> <!-- end .b-sections__item -->
-					<div class="b-sections__item">
+					<div class="b-sections__item" data-section-code="handcuffs">
 						<div class="b-image b-image_soldiers"></div>
 						<div class="b-content">
 							<div class="b-icon animation">
@@ -127,8 +128,8 @@
 						<div class="b-image b-image_rub"></div>
 						<div class="b-content">
 							<div class="b-icon animation">
-								<img src="images/icon-section-calc.png" alt=""/>
-								<div class="b-icon__text">Калькулятор</div>
+								<img src="images/icon-section-video.png" alt=""/>
+								<div class="b-icon__text">Кинолента</div>
 							</div>
 							<div class="b-text">
 								<div class="b-text__cell">
@@ -141,7 +142,7 @@
 							</div>
 						</div>
 						
-						<div class="b-small-icon b-small-icon_calc"><img src="images/icon-section-calc.png" alt=""/></div>
+						<div class="b-small-icon b-small-icon_calc"><img src="images/icon-section-video.png" alt=""/></div>
 					</div> <!-- end .b-sections__item -->
 					<div class="b-sections__item">
 						<div class="b-image b-image_bell"></div>
@@ -176,47 +177,6 @@
 					<div class="b-map__map" id="map"></div>
 				</div>
 			</section> <!-- end .b-index.b-map-page -->
-			
-			<section class="b-popup">
-				<div class="b-popup__fill"></div>
-				
-				<div class="b-popup-slider">
-					<div class="b-popup-slider__inner">
-						<div class="b-item">
-							<div class="b-icon"><img src="images/icon-map-home-big.png" alt=""/></div>
-							<div class="b-item__header" style="background-image:url('images/temp/pic_1.jpg')">
-								<h2 class="b-item__title">Крымский террорист</h2>
-								<div class="b-social"><img src="images/temp/pic_2.png" alt=""/></div>
-							</div>
-							<div class="b-item__body">
-								<h3>Как кинорежиссер стал жертвой борьбы с бандеровцами</h3>
-								ФСБ России уже десять месяцев расследует дело о «крымских террористах» — группе «Правого сектора», которая якобы планировала теракты в Крыму. Материалы дела засекречены, адвокаты дали подписку о неразглашении. Все это время четверо подозреваемых сидят в российских СИЗО. По версии следователей, организатором террористической группы был режиссер Олег Сенцов. Он всегда поддерживал единую Украину и сейчас считает свое дело политическим. В справедливый суд Сенцов не верит, говорит, что в СИЗО его пытали. В поддержку режиссера выступают в Каннах, освободить его просят Педро Альмодовар и Александр Сокуров, к обращению присоединился даже Никита Михалков. Сейчас за организацию террористического сообщества Олегу Сенцову может грозить от 15 до 20 лет тюрьмы.
-								
-								<div class="b-detail">
-									<hr/>
-									<p>После присоединения на полуострове начали активно искать людей, которые должны были устроить там «то же самое, что и на Донбассе». Первых «террористов» задержали уже в мае — четверых людей, которые были едва.</p>
-									<h4>Заголовок</h4>
-									<img src="images/temp/pic_3.jpg" style="float:right; margin:0 0 27px 27px" alt=""/>
-									<p>Сторонники присоединения Крыма к России уверяют, что «вежливые люди» спасли полуостров от «Правого сектора». Никто не сомневается, что туда уже ехал поезд с «боевикам». Даже министр иностранных дел Сергей Лавров говорил, что в Крыму «заполыхало бы пламя».</p>
-									<p>«Террористов» четверо. Первого, Геннадия Афанасьева, уже приговорили к 7 годам колонии строгого режима. Он всегда был сторонником единой Украины, но после ареста сразу согласился получить российский паспорт. А в СИЗО признал свою вину.</p>
-									<p>Второй — Алексей Чирний — стал ключевым свидетелем обвинения. Он дал показания на всех фигурантов. По некоторым данным, Чирний заключил сделку со следствием, и теперь его дело будут рассматривать в особом порядке.</p>
-									
-								</div>
-								
-								<div class="b-button-detail">
-									<span class="b-button b-button_green" data-change-text="скрыть">подробнее</span>
-								</div>
-							</div>
-						</div>
-						
-						<div class="b-close"></div>
-					</div> <!-- end .b-popup-slider__inner -->
-					
-					<div class="b-arrow b-arrow_left"></div>
-					<div class="b-arrow b-arrow_right"></div>
-				</div> <!-- emd .b-popup-slider -->
-				
-			</section> <!-- end .b-popup -->
 			
 		</div> <!-- end .b-main__inner -->
 	</div> <!-- end .b-main -->

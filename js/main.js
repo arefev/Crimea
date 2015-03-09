@@ -36,14 +36,30 @@ $(function(){
 	
 	// ABOUT PROJECT
 	$(".b-about-project .b-button").click(function(){
-		$(".b-about-project").hide();
+		$(".b-about-project").fadeOut(1000);
 		runAnimationBlock($(".b-sections"));
 	});
 	
 	// SECTIONS
 	$(".b-sections__item .b-button").click(function() {
-		$(".b-sections__item .b-small-icon").addClass('active');
+		var elSectionItem = $(this).closest(".b-sections__item"),
+			sectionCode = elSectionItem.data("section-code");
+			
+		if (sectionCode) {
+			showPoints(sectionCode);
+		}
+			
+		$(".b-sections__item .b-small-icon").addClass("active");
 		$(".b-sections").addClass("min");
+	});
+	
+	$(".b-sections__item .b-small-icon").click(function(){
+		var elSectionItem = $(this).closest(".b-sections__item"),
+			sectionCode = elSectionItem.data("section-code");
+		
+		if (sectionCode) {
+			showPoints(sectionCode);
+		}
 	});
 	
 	// TOOLTIP
@@ -99,50 +115,10 @@ $(function(){
 		elTooltip.removeClass("active");
 		mapFill.fadeOut();
 	});
-	
-	// POPUP
-	$(".b-popup-slider").on("click", ".b-button-detail .b-button", function() {
-		var elItem = $(this).closest(".b-item"),
-			elDetail = elItem.find(".b-detail"),
-			btnText = $(this).text(),
-			btnChangeText = $(this).data("change-text");
-			
-		$(this).text(btnChangeText).data("change-text", btnText);
-		
-		if (elDetail.is(":visible")) {
-			elDetail.slideUp();
-		} else {
-			elDetail.slideDown();
-		}
-	});
-	
-	$(".b-popup-slider .b-close, .b-popup__fill").click(function(){
-		$(".b-popup").fadeOut();
-	});
-	
-	$(".b-popup-slider .b-arrow").click(function(){
-		var elSlider = $(this).closest(".b-popup-slider"),
-			elItem = elSlider.find(".b-item"),
-			animOptions = {
-				opacity:0
-			}
-			
-		if ($(this).is(".b-arrow_left")) {
-			animOptions.right = "-50%"
-		} else {
-			animOptions.left = "-50%"
-		}
-			
-		elItem.animate(animOptions, function(){
-			$(this).hide();
-		});
-	});
-	
-	centerPopup($(".b-popup-slider"));
 });
 
 $(window).resize(function(){
-	centerPopup($(".b-popup-slider"));
+	
 });
 
 function showPopup(element)
