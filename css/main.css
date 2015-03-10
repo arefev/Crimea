@@ -1,15 +1,15 @@
 /* FONTS */
-
-@font-face {
-    font-family: 'IntroR';
-    src: url('../fonts/YDTpMiCu-webfont.eot');
-    src: url('../fonts/YDTpMiCu-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/YDTpMiCu-webfont.woff2') format('woff2'),
-         url('../fonts/YDTpMiCu-webfont.woff') format('woff'),
-         url('../fonts/YDTpMiCu-webfont.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
+	@font-face {
+		font-family: 'IntroR';
+		src: url('../fonts/YDTpMiCu-webfont.eot');
+		src: url('../fonts/YDTpMiCu-webfont.eot?#iefix') format('embedded-opentype'),
+			 url('../fonts/YDTpMiCu-webfont.woff2') format('woff2'),
+			 url('../fonts/YDTpMiCu-webfont.woff') format('woff'),
+			 url('../fonts/YDTpMiCu-webfont.ttf') format('truetype');
+		font-weight: normal;
+		font-style: normal;
+	}
+/* --END-- FONTS */
 
 /* GENERAL */
 	body {
@@ -119,13 +119,9 @@
 		background:url("../images/first-page-bg.jpg") no-repeat;
 		background-size:cover;
 		z-index:30;
-		
-		transition: all 2s; 
-		-moz-transition: all 2s;
-		-webkit-transition: all 2s; 
-		-o-transition: all 2s;
+		position:fixed;
+		top:0;
 	}
-	
 	
 	.b-main_ready .b-first-page {
 		display:none;
@@ -147,9 +143,30 @@
 		font-size:86px;
 		margin-bottom:-11px;
 	}
+	
+	/* video */
+	.b-first-page__video {
+		min-width:100%; 
+		min-height:100%;
+		width:auto; 
+		height:auto;
+		position:absolute;
+		bottom:0;
+		left:0;
+		z-index:-1;
+	}
 /* --END-- FIRST PAGE */
 
 /* ABOUT PROJECT */
+	.b-map-page {
+		position:absolute;
+		top:100%;
+	}
+	
+	.b-main_ready .b-map-page {
+		top:0;
+	}
+	
 	.b-about-project {
 		width:100%;
 		height:100%;
@@ -285,10 +302,10 @@
 		position:absolute;
 		top:50%;
 		
-		transition: all .3s; 
-		-moz-transition: all .3s;
-		-webkit-transition: all .3s; 
-		-o-transition: all .3s;
+		transition: all .5s; 
+		-moz-transition: all .5s;
+		-webkit-transition: all .5s; 
+		-o-transition: all .5s;
 	}
 	
 	.b-sections.min .b-icon {
@@ -353,10 +370,10 @@
 		bottom:50%;
 		left:-300%;
 		
-		transition: bottom .3s; 
-		-moz-transition: bottom .3s;
-		-webkit-transition: bottom .3s; 
-		-o-transition: bottom .3s;
+		transition: bottom .5s; 
+		-moz-transition: bottom .5s;
+		-webkit-transition: bottom .5s; 
+		-o-transition: bottom .5s;
 	}
 	
 	.b-sections.min .b-button {
@@ -415,7 +432,7 @@
 		margin-top:35px;
 		display:none;
 		text-align:center;
-		padding:28px 5px;
+		padding:14px 5px;
 		position:absolute;
 		top:100%;
 	}
@@ -472,12 +489,13 @@
 		min-width:100px;
 		max-width:350px;
 		padding:10px 20px;
-		font-size:18px;
+		font-size:16px;
 		font-weight:bold;
 		color:#282828;
 		text-transform:uppercase;
 		box-shadow:-6px 4px 6px #a5a5a5;
 		background:#FFF;
+		white-space:nowrap;
 	}
 	
 	.b-map__map-infobox:after {
@@ -545,6 +563,12 @@
 		background:#013a51;
 	}
 	
+	.b-article {
+		background:#FFF;
+		padding:0 0 60px;
+		display:none;
+	}
+	
 	.b-article__header {
 		width:100%;
 		min-height:449px;
@@ -578,4 +602,69 @@
 		line-height:100%;
 		margin:0;
 	}
+	
+	.b-article__body {
+		width:100%;
+		max-width:980px;
+		margin:0 auto;
+		padding:0 10px;
+		text-align:justify;
+		font-size:18px;
+		color:#212121;
+	}
+	
+	.b-article__body h3 {
+		color:#343434;
+		text-transform:uppercase;
+		font-size:24px;
+	}
+	
+	.b-article__body hr {
+		border:0;
+		border-top:1px solid #404040;
+		margin:12px 0;
+	}
+	
+	.b-article__social {
+		text-align:center;
+		margin:27px 0 0;
+	}
 /* --END-- ARTICLE PAGE */
+
+/* CAROUSEL */
+	.b-carousel-wrapper {
+		max-width:821px;
+		padding:0 37px;
+		margin:30px auto;
+		position:relative;
+	}
+	
+	.b-carousel {
+		margin:0;
+		padding:0;
+		list-style:none;
+	}
+	
+	.b-carousel__item {
+		float:left;
+	}
+	
+	.b-carousel-arrow {
+		width:20px;
+		height:33px;
+		background:url("../images/carousel-arrows.png") no-repeat;
+		cursor:pointer;
+		position:absolute;
+		top:50%;
+		margin-top:-16px;
+	}
+	
+	.b-carousel-arrow_left {
+		left:0;
+	}
+	
+	.b-carousel-arrow_right {
+		background-position:-21px 0;
+		right:0;
+	}
+/* --END-- CAROUSEL */

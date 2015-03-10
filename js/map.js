@@ -274,7 +274,8 @@ function showPoints(sectionCode) {
 
 function setMarkerEvents(marker) {
 	google.maps.event.addListener(marker, 'click', function() {
-		console.log(marker.ID);
+		setArticleUrl(1);
+		checkArticleUrl(false);
 	});
 	
 	var infowindow = new InfoBox({
