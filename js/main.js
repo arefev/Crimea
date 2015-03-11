@@ -1,14 +1,11 @@
 // MAIN JavaScript
 
 $(function(){
-	// FIRST PAGE
-	/*$(".b-first-page").on("mousewheel DOMMouseScroll", function(event){
-		$(this).css('transform', 'translateY(-150%)')
-	});*/
-	
 	// VIDEO
 	video = document.getElementById("firstPageVideo");
-	video.play();
+	if (video.paused != undefined) {
+		video.play();
+	}
 	
 	// ABOUT PROJECT
 	$(".b-about-project .b-button").click(function(){
@@ -21,20 +18,34 @@ $(function(){
 		var elSectionItem = $(this).closest(".b-sections__item"),
 			sectionCode = elSectionItem.data("section-code");
 			
-		if (sectionCode) {
-			showPoints(sectionCode);
+		switch(sectionCode) {
+			case "video":
+			case "info":
+				setArticleUrl(sectionCode);
+			break;
+			default:
+				if (sectionCode) {
+					showPoints(sectionCode);
+					$(".b-main").addClass("b-main_ready");
+				}
+			break;
 		}
-			
-		$(".b-sections__item .b-small-icon").addClass("active");
-		$(".b-sections").addClass("min");
 	});
 	
 	$(".b-sections__item .b-small-icon").click(function(){
 		var elSectionItem = $(this).closest(".b-sections__item"),
 			sectionCode = elSectionItem.data("section-code");
 		
-		if (sectionCode) {
-			showPoints(sectionCode);
+		switch(sectionCode) {
+			case "video":
+			case "info":
+				setArticleUrl(sectionCode);
+			break;
+			default:
+				if (sectionCode) {
+					showPoints(sectionCode);
+				}
+			break;
 		}
 	});
 	
@@ -94,10 +105,16 @@ $(function(){
 	
 	// ARTICLE PAGE
 	$(".b-article-page__back").click(function(){
-		hideArticle();
+		//hideArticle();
+		window.location.hash = "";
 	});
 	
 	checkArticleUrl(true);
+});
+
+$(window).on("hashchange", function(){
+	var hash = window.location.hash;
+	checkArticleUrl(false);
 });
 
 $(window).scroll(function(){
@@ -106,8 +123,11 @@ $(window).scroll(function(){
 		top = height/4;
 		
 	if (scrollTop > top) {
-		video = document.getElementById("firstPageVideo");
-		video.pause();
+		
+		var video = document.getElementById("firstPageVideo");
+		if (video.paused != undefined) {
+			video.pause();
+		}
 		
 		$(".b-first-page").animate({
 			top: "-100%"
@@ -124,7 +144,7 @@ function initCarousel() {
 		var $carousel = $(this),
 			id = "carousel_" + index;
 			
-		if (!$carousel.is(".b-carousel_ready")) {
+		if (!$carousel.is(".b-carousel_ready") && $carousel.is(":visible")) {
 			$carousel.attr("id", id);
 			
 			if (!$carousel.closest(".b-carousel-wrapper").length) {
@@ -172,21 +192,29 @@ function setArticleUrl(articleID) {
 }
 
 function checkArticleUrl(onDocReady) {
-	var params_ready = window.location.hash.split("#")[1],
-		urlParams = parseGetParams(params_ready);
+	var hash = window.location.hash;
 	
-	for (i in urlParams) {
-		var name = urlParams[i]["name"],
-			val = urlParams[i]["val"];
-			
-		if (name == "articleID" && val) {
-			if (!onDocReady) {
-				showArticle(val, true);
-			} else {
-				$(".b-main").addClass("b-main_ready");
-				showArticle(val, false);
+	if (hash && hash != "#") {
+		
+		var params_ready = window.location.hash.split("#")[1],
+			urlParams = parseGetParams(params_ready);
+		
+		for (i in urlParams) {
+			var name = urlParams[i]["name"],
+				val = urlParams[i]["val"];
+				
+			if (name == "articleID" && val) {
+				if (!onDocReady) {
+					showArticle(val, true);
+				} else {
+					$(".b-main").addClass("b-main_ready");
+					showArticle(val, false);
+				}
 			}
 		}
+		
+	} else {
+		hideArticle();
 	}
 }
 
@@ -231,7 +259,7 @@ function hideArticle() {
 		$(".b-article-page__back").css({ position: "absolute"});
 	});
 	
-	window.location.hash = "";
+	//window.location.hash = "";
 }
 
 function runAnimationSection(section) {

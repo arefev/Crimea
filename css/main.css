@@ -409,7 +409,7 @@
 	}
 	
 	.b-main_ready .b-sections__item .b-small-icon,
-	.b-sections__item .b-small-icon.active {
+	.b-sections.min .b-sections__item .b-small-icon {
 		bottom:0;
 	}
 	
@@ -475,6 +475,10 @@
 		position:absolute;
 		top:0;
 		left:0;
+	}
+	
+	.b-map img {
+		max-width:none;
 	}
 	
 	.b-map__map {
@@ -557,6 +561,10 @@
 		-moz-transition: all .5s;
 		-webkit-transition: all .5s; 
 		-o-transition: all .5s;
+	}
+	
+	.b-main_ready .b-article-page__back_menu {
+		display:none;
 	}
 	
 	.b-article-page__back:hover {

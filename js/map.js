@@ -203,7 +203,7 @@ var data = {
 	}
 };
 
-var map, markers = [];
+var map, markers = [], arInfowindow = [];
 
 $(function(){
 	// This is the minimum zoom level that we'll allow
@@ -212,8 +212,12 @@ $(function(){
 	map = new google.maps.Map(document.getElementById('map'), {
 		zoom: minZoomLevel,
 		minZoom: minZoomLevel,
-		zoomControl: false,
+		zoomControl: true,
+		zoomControlOptions: {
+			position: google.maps.ControlPosition.LEFT_CENTER
+		},
 		panControl: false,
+		streetViewControl: false,
 		center: new google.maps.LatLng(45.272932, 34.510431),
 		mapTypeId: google.maps.MapTypeId.ROADMAP,
 		styles: mapPersonalStyle
@@ -285,6 +289,7 @@ function setMarkerEvents(marker) {
 		alignBottom: true,
 		pixelOffset: new google.maps.Size(-15, -55),
 	});
+	arInfowindow.push(infowindow);
 	
 	google.maps.event.addListener(marker, 'mouseover', function() {
 		infowindow.open(marker.get('map'), marker);
@@ -299,6 +304,7 @@ function setMarkerEvents(marker) {
 function setAllMap(map) {
 	for (var i = 0; i < markers.length; i++) {
 		markers[i].setMap(map);
+		arInfowindow[i].setMap(map);
 	}
 }
 
