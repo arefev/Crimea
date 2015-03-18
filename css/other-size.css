@@ -59,25 +59,20 @@
 	
 	/* FIRST PAGE */
 		.b-first-page__title {
-			font-size:18px;
+			font-size:13px;
 			top:30%;
 		}
 
 		.b-first-page__title .b-large {
-			font-size:45px;
+			font-size:32px;
 			margin-bottom:0;
 		}
-	/* --END-- FIRST PAGE */
-	
-	/* SECTIONS */
-		.b-section__title {
-			text-align:center;
-			text-transform:uppercase;
-			font-size:24px;
-			font-weight:bold;
+		
+		.b-first-page__alert {
+			font-size:15px;
 		}
-	/* --END-- SECTIONS */
-	
+	/* --END-- FIRST PAGE */
+
 	/* ARTICLES */
 		.b-article__text {
 			padding-left:18px;
@@ -89,6 +84,63 @@
 			
 		}
 	/* --END-- ARTICLES */
+}
+
+@media screen and (max-width: 320px) {	
+	/* SECTIONS */
+		.b-section {
+			padding:20px 21px 0;
+			font-size:9px;
+		}
+		
+		.b-section__title {
+			font-size:15px;
+		}
+		
+		.b-section__desc {
+			padding:0;
+		}
+		
+		.b-section__desc .b-button {
+			font-size:9px;
+			border-width:1px;
+		}
+	/* --END-- SECTIONS */
+	
+	/* ARTICLES */
+		.b-article {
+			margin:0 -21px;
+			padding:12px 21px 12px;
+		}
+		
+		.b-article__title {
+			font-size:10px;
+			margin-bottom:10px;
+		}
+	/* --END-- ARTICLES */
+	
+	/* DETAIL ARTICLE */
+		.b-detail-article__header .b-title h1 {
+			font-size:20px;
+		}
+		
+		.b-detail-article__body {
+			font-size:10px;
+		}
+		
+		.b-detail-article__body h2 {
+			font-size:10px;
+		}
+		
+		.b-detail-article__body h3 {
+			font-size:10px;
+		}
+		
+		.b-detail-article__body .b-button {
+			font-size:9px;
+			border-width:1px;
+		}
+	/* --END-- DETAIL ARTICLE */
 }
 
 @media screen and (max-height: 450px) and (max-width:800px) {

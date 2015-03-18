@@ -103,9 +103,18 @@ $(function(){
 		mapFill.fadeOut();
 	});
 	
+	$(".b-sections__tooltip, .b-map__fill").click(function(){
+		var elTooltip = $(".b-sections__tooltip"),
+			mapFill = $(".b-map__fill");
+		
+		mapFill.stop();
+		
+		elTooltip.removeClass("active");
+		mapFill.fadeOut();
+	});
+	
 	// ARTICLE PAGE
 	$(".b-article-page__back").click(function(){
-		//hideArticle();
 		window.location.hash = "";
 	});
 	

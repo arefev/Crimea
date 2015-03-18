@@ -151,7 +151,7 @@
 	.b-section__title {
 		text-align:center;
 		text-transform:uppercase;
-		font-size:30px;
+		font-size:22px;
 		font-weight:bold;
 	}
 	
@@ -170,6 +170,10 @@
 /* --END-- SECTIONS */
 
 /* ARTICLES */
+	.b-articles {
+		margin-top:18px;
+	}
+	
 	.b-article {
 		margin:0 -33px;
 		padding:35px 33px 18px;
@@ -210,3 +214,108 @@
 		padding:56px 0 0;
 	}
 /* --END-- FOOTER */
+
+/* DETAIL ARTICLE */
+	.b-detail-article {
+		background:#FFF;
+		padding:0 0 60px;
+	}
+	
+	.b-detail-article__header {
+		width:100%;
+		min-height:281px;
+		background-repeat:no-repeat;
+		background-position:center top;
+		background-size:cover;
+		padding:30px 25px 0;
+		position:relative;
+	}
+	
+	.b-detail-article__header .b-title {
+		color:#353535;
+		text-align:center;
+	}
+	
+	.b-detail-article__header .b-title h1 {
+		font-size:40px;
+		font-weight:bold;
+		text-transform:uppercase;
+		line-height:100%;
+		margin:0 0 12px;
+	}
+	
+	.b-detail-article__social {
+		width:100%;
+		text-align:center;
+		position:absolute;
+		bottom:27px;
+		left:0;
+	}
+	
+	.b-article__body {
+		width:100%;
+		max-width:980px;
+		margin:0 auto;
+		padding:0 10px;
+		text-align:justify;
+		font-size:18px;
+		color:#212121;
+	}
+	
+	.b-article__body h2 {
+		color:#343434;
+		text-transform:uppercase;
+		font-size:20px;
+		text-align:center;
+	}
+	
+	.b-article__body h3 {
+		color:#343434;
+		text-transform:uppercase;
+		font-size:24px;
+	}
+	
+	.b-article__body hr {
+		border:0;
+		border-top:1px solid #404040;
+		margin:12px 0;
+	}
+/* --END-- DETAIL ARTICLE */
+
+/* CAROUSEL */
+	.b-carousel-wrapper {
+		max-width:821px;
+		padding:0 37px;
+		margin:30px auto;
+		position:relative;
+	}
+	
+	.b-carousel {
+		margin:0;
+		padding:0;
+		list-style:none;
+	}
+	
+	.b-carousel__item {
+		float:left;
+	}
+	
+	.b-carousel-arrow {
+		width:20px;
+		height:33px;
+		background:url("../images/carousel-arrows.png") no-repeat;
+		cursor:pointer;
+		position:absolute;
+		top:50%;
+		margin-top:-16px;
+	}
+	
+	.b-carousel-arrow_left {
+		left:0;
+	}
+	
+	.b-carousel-arrow_right {
+		background-position:-21px 0;
+		right:0;
+	}
+/* --END-- CAROUSEL */
